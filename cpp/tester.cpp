@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Complex.cpp"
+#include "Complex.h"
 
 using namespace std;
 
