@@ -1,3 +1,6 @@
+# Executables
+*.bin
+
 # Compiled Object files
 *.slo
 *.lo
