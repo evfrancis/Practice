@@ -17,8 +17,8 @@ class Complex {
         float getImag();
 
         // Mutators
-        float setReal(const float& r);
-        float setImag(const float& i);
+        void setReal(const float& r);
+        void setImag(const float& i);
 
         // Operators
         Complex operator+ (const Complex& rhs);

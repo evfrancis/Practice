@@ -32,11 +32,11 @@ float Complex::getImag() {
     return imag;
 }
 
-float Complex::setReal(const float& r) {
+void Complex::setReal(const float& r) {
     real = r;
 }
 
-float Complex::setImag(const float& i) {
+void Complex::setImag(const float& i) {
     imag = i;
 }
 
@@ -68,11 +68,4 @@ void Complex::print() {
         cout << real << " + " << imag << "i\n";
     }
 }
-int main() {
-    Complex a(6,3);
-    Complex b(3,23);
-    Complex c(a);
-    c = a+b;
-    c.print();
-    
-}
+
