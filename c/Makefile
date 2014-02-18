@@ -1,8 +1,17 @@
 CC=gcc
 CFLAGS=-g -O2
 
-tester.bin: tester.c algorithms.o BST.o linkedList.o
-	$(CC) $(CFLAGS) algorithms.o BST.o linkedList.o tester.c -o tester.bin
+SOURCES=*.cpp
+OBJECTS=$(SOURCES:.cpp=.o)
+EXECUTABLE=tester.bin
+
+all: $(EXECUTABLE)
+
+tester.bin: tester.o algorithms.o BST.o linkedList.o
+	$(CC) $(CFLAGS) algorithms.o BST.o linkedList.o tester.o -o tester.bin
+
+tester.o: tester.c
+	$(CC) $(CFLAGS) -c tester.c
 
 algorithms.o: algorithms.h algorithms.c
 	$(CC) $(CFLAGS) -c algorithms.c
