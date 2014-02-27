@@ -1,4 +1,7 @@
 #include "stack.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 struct stack {
     struct stack_ele* head;    /**< Pointer to the stack */

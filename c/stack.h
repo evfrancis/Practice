@@ -12,9 +12,6 @@
     so that the library can copy data back.
     */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 // Error Handling
 #define STACK_SUCCESS        0 /*!< Action performed successfully @hideinitializer*/
