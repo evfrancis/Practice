@@ -1,6 +1,9 @@
 # Executables
 *.bin
 
+# Docs
+docs
+
 # Compiled Object files
 *.slo
 *.lo

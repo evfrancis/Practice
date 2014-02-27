@@ -3,6 +3,7 @@
 #include "assert.h"
 #include "linkedList.h"
 #include "BST.h"
+#include "stack.h"
 #include "algorithms.h"
 
 #define ARRAY_LEN 200
@@ -52,6 +53,59 @@ void testBST() {
 
 }
 
+void testStack() {
+    // Create
+    stack* my_stack = NULL;
+    stack* dummy_stack = NULL;
+
+    assert(stack_create(&my_stack) == SUCCESS); // Successfully create
+    assert(stack_create(&dummy_stack) == SUCCESS); // Successfully create
+    assert(get_stack_size(my_stack) == 0); // 0 size
+
+    int a = 3;
+    int b = 4;
+    double c = 5.12;
+    char d = 'c';
+    char str[20] = "Hello World";
+
+    // Successful pushes
+    assert(stack_push(my_stack, &a, sizeof(a)) == 0);
+    assert(stack_push(my_stack, &b, sizeof(b)) == 0);
+    assert(stack_push(my_stack, &c, sizeof(c)) == 0);
+    assert(stack_push(my_stack, &d, sizeof(d)) == 0);
+    assert(stack_push(my_stack, str, strlen(str)) == 0);
+
+    // Bad pushes:
+    assert(stack_push(NULL, &a, sizeof(a)) != 0);
+    assert(stack_push(my_stack, NULL, sizeof(a)) != 0);
+    assert(stack_push(my_stack, &a, 0) != 0);
+
+    assert(get_stack_size(my_stack) == 5); // 5 items
+
+    int a2;
+    int b2;
+    double c2;
+    char d2;
+    char str2[20];
+
+    // Bad pop:
+    assert(stack_pop(NULL, &a) != 0);
+    assert(stack_pop(dummy_stack, &a) != 0);
+    assert(stack_pop(my_stack, NULL) != 0);
+
+    // Successful pop:
+    assert(stack_pop(my_stack, str2) == 0 && strcmp(str,str)==0);
+    assert(stack_pop(my_stack, &d2) == 0 && d==d2);
+    assert(stack_pop(my_stack, &c2) == 0 && c==c2);
+    assert(stack_pop(my_stack, &b2) == 0 && b==b2);
+    assert(stack_pop(my_stack, &a2) == 0 && a==a2);
+
+    // Bad pop
+    assert(stack_pop(my_stack, &a2) != 0);
+
+    printf("Stack: Success\n");
+}
+
 void testLL() {
     node* head = NULL;
     int vals[20] = {2,2,2,4,4,2,6,2,4,4,31,37,9,6,4,5,2,2,2,4};
@@ -74,6 +128,6 @@ void testLL() {
 int main() {
     srand(time(NULL));
     //testLL();
-    testAlgorithms();
+    testStack();
     return 0;
 }
