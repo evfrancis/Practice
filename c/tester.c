@@ -103,6 +103,11 @@ void testStack() {
     // Bad pop
     assert(stack_pop(my_stack, &a2) != 0);
 
+    // Cleanup
+    assert(stack_delete(my_stack) == 0); // Successfully create
+    assert(stack_delete(dummy_stack) == 0); // Successfully create
+
+
     printf("Stack: Success\n");
 }
 
