@@ -8,7 +8,7 @@ EXECUTABLE=tester.bin
 all: $(EXECUTABLE)
 
 tester.bin: tester.o algorithms.o BST.o linkedList.o stack.o
-	$(CC) $(CFLAGS) algorithms.o BST.o linkedList.o tester.o -o tester.bin
+	$(CC) $(CFLAGS) algorithms.o BST.o linkedList.o stack.o tester.o  -o tester.bin
 
 tester.o: tester.c
 	$(CC) $(CFLAGS) -c tester.c

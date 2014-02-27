@@ -61,8 +61,9 @@ int stack_push(stack* my_stack, void* data, int size) {
 
     newItem->size = size;
     newItem->next = my_stack->head;
+    newItem->value = malloc(size);
 
-    memcpy(my_stack->head->value, data, size);
+    memcpy(newItem->value, data, size);
 
     my_stack->head = newItem;
 
@@ -75,6 +76,9 @@ int stack_pop(stack* my_stack, void* data) {
 
     if (my_stack->head == NULL)
         return STACK_EMPTY;
+
+    if (data == NULL)
+        return UNDEF_DATA;
 
     memcpy(data, my_stack->head->value, my_stack->head->size);
 
