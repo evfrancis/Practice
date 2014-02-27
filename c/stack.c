@@ -52,13 +52,6 @@ int stack_get_size(stack* my_stack) {
     if (my_stack == NULL)
         return STACK_INVALID;   
 
-    stack_ele* head = my_stack->head;
-    while (head != NULL) {
-        // Traverse and count
-        size++;
-        head = head->next;
-    }
-
     return my_stack->size;
 }
 
@@ -113,10 +106,8 @@ int stack_pop(stack* my_stack, void* data) {
     // Copy element data to user data
     memcpy(data, my_stack->head->value, my_stack->head->size);
 
-    struct stack_ele* temp = my_stack->head;
-
     // Remove the element from the stack, update stack to point to next element
-    stack_ele* temp = my_stack->head;
+    struct stack_ele* temp = my_stack->head;
     my_stack->head = my_stack->head->next;
 
     free(temp->value);
