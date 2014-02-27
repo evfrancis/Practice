@@ -15,7 +15,7 @@ int stack_create(stack** my_stack) {
     if (my_stack == NULL)
         return STACK_INVALID;
 
-    *my_stack = (stack*)malloc(sizeof(*my_stack));
+    *my_stack = malloc(sizeof(*my_stack));
 
     if (*my_stack == NULL)
         return STACK_OUT_OF_MEM;
@@ -66,7 +66,7 @@ int stack_push(stack* my_stack, void* data, int size) {
         return STACK_INVALID_SIZE;
 
     // Create a new stack element
-    struct stack_ele* newItem = (struct stack_ele*)malloc(sizeof(*newItem));
+    struct stack_ele* newItem = malloc(sizeof(*newItem));
 
     if (newItem == NULL)
         return STACK_OUT_OF_MEM;
@@ -74,7 +74,7 @@ int stack_push(stack* my_stack, void* data, int size) {
     // Initialize data elements
     newItem->size = size;
     newItem->next = my_stack->head;
-    newItem->value = (void*)malloc(size);
+    newItem->value = malloc(size);
 
     if (newItem->value == NULL) {
         // Cleanup and return
