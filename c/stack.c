@@ -4,7 +4,7 @@ int stack_create(stack** my_stack) {
     if (my_stack == NULL)
         return NULL_STACK;
 
-    *my_stack = malloc(sizeof(stack));
+    *my_stack = (stack*)malloc(sizeof(stack));
 
     if (*my_stack == NULL)
         return OUT_OF_MEM;
@@ -54,14 +54,14 @@ int stack_push(stack* my_stack, void* data, int size) {
     if (size <= 0)
         return INVALID_SIZE;
 
-    stack_ele* newItem = malloc(sizeof(stack_ele));
+    stack_ele* newItem = (stack_ele*)malloc(sizeof(stack_ele));
 
     if (newItem == NULL)
         return OUT_OF_MEM;
 
     newItem->size = size;
     newItem->next = my_stack->head;
-    newItem->value = malloc(size);
+    newItem->value = (void*)malloc(size);
 
     memcpy(newItem->value, data, size);
 
