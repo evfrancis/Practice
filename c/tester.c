@@ -58,9 +58,9 @@ void testStack() {
     stack* my_stack = NULL;
     stack* dummy_stack = NULL;
 
-    assert(stack_create(&my_stack) == SUCCESS); // Successfully create
-    assert(stack_create(&dummy_stack) == SUCCESS); // Successfully create
-    assert(get_stack_size(my_stack) == 0); // 0 size
+    assert(stack_create(&my_stack) == 0); // Successfully create
+    assert(stack_create(&dummy_stack) == 0); // Successfully create
+    assert(stack_get_size(my_stack) == 0); // 0 size
 
     int a = 3;
     int b = 4;
@@ -80,7 +80,7 @@ void testStack() {
     assert(stack_push(my_stack, NULL, sizeof(a)) != 0);
     assert(stack_push(my_stack, &a, 0) != 0);
 
-    assert(get_stack_size(my_stack) == 5); // 5 items
+    assert(stack_get_size(my_stack) == 5); // 5 items
 
     int a2;
     int b2;

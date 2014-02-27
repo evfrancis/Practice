@@ -17,33 +17,20 @@
 #include <string.h>
 
 // Error Handling
-#define SUCCESS          0 /*!< Action performed successfully @hideinitializer*/
-#define NULL_STACK      -1 /*!< The stack argument provided was NULL @hideinitializer*/
-#define UNDEF_DATA      -2 /*!< The data argument provided was NULL @hideinitializer*/
-#define INVALID_SIZE    -3 /*!< The size of the data provided was 0 or less @hideinitializer*/
-#define STACK_EMPTY     -4 /*!< There are no elements left on the stack @hideinitializer*/
-#define OUT_OF_MEM      -5 /*!< Could not allocate data, system out of memory @hideinitializer*/
+#define STACK_SUCCESS        0 /*!< Action performed successfully @hideinitializer*/
+#define STACK_INVALID       -1 /*!< The stack argument provided was NULL @hideinitializer*/
+#define STACK_UNDEF_DATA    -2 /*!< The data argument provided was NULL @hideinitializer*/
+#define STACK_INVALID_SIZE  -3 /*!< The size of the data provided was 0 or less @hideinitializer*/
+#define STACK_EMPTY         -4 /*!< There are no elements left on the stack @hideinitializer*/
+#define STACK_OUT_OF_MEM    -5 /*!< Could not allocate data, system out of memory @hideinitializer*/
 
 // ---------- Data Structure ----------
-
-typedef struct stack_ele stack_ele;
-typedef struct stack stack;
-
-/**
- * An element on the stack
- */
-struct stack_ele {
-    void* value;        /**< A pointer to the data */
-    int size;           /**< The size of the data */
-    stack_ele* next;    /**< The next element on the stack */
-};
 
 /**
  * The stack itself
  */
-struct stack {
-    stack_ele* head;    /**< Pointer to the stack */
-};
+struct stack;
+typedef struct stack stack;
 
 // ---------- Creation/Deletion ----------
 
@@ -68,7 +55,7 @@ int stack_delete(stack* my_stack);
  * @param my_stack The stack
  * @return The size (> 0) on success, an error code on failure
  */
-int get_stack_size(stack* my_stack);
+int stack_get_size(stack* my_stack);
 
 // ---------- Mutators ----------
 /**
