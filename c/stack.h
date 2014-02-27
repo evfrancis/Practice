@@ -77,4 +77,12 @@ int stack_push(stack* my_stack, void* data, int size);
  */
 int stack_pop(stack* my_stack, void* data);
 
+/**
+ * Gets the size of the data stored at the top of the stack. This value is the amount the
+ * user must allocate for the library to pop off a value.
+ * @param my_stack The stack
+ * @return The size (> 0) on success, an error code on failure
+ */
+int stack_get_data_size(stack* my_stack);
+
 #endif /* End stack.h */

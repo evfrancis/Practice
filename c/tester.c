@@ -94,10 +94,19 @@ void testStack() {
     assert(stack_pop(my_stack, NULL) != 0);
 
     // Successful pop:
+    assert(stack_get_data_size(my_stack) <= 20);
     assert(stack_pop(my_stack, str2) == 0 && strcmp(str,str)==0);
+
+    assert(stack_get_data_size(my_stack) == sizeof(d2));
     assert(stack_pop(my_stack, &d2) == 0 && d==d2);
+
+    assert(stack_get_data_size(my_stack) == sizeof(c2));
     assert(stack_pop(my_stack, &c2) == 0 && c==c2);
+
+    assert(stack_get_data_size(my_stack) == sizeof(b2));
     assert(stack_pop(my_stack, &b2) == 0 && b==b2);
+
+    assert(stack_get_data_size(my_stack) == sizeof(a2));
     assert(stack_pop(my_stack, &a2) == 0 && a==a2);
 
     // Bad pop

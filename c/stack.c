@@ -119,3 +119,13 @@ int stack_pop(stack* my_stack, void* data) {
 
     return STACK_SUCCESS;
 }
+
+int stack_get_data_size(stack* my_stack) {
+    if (my_stack == NULL)
+        return STACK_INVALID;
+
+    if (my_stack->head == NULL)
+        return STACK_EMPTY;
+
+    return my_stack->head->size;
+}
