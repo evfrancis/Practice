@@ -12,7 +12,6 @@
     so that the library can copy data back.
     */
 
-
 // Error Handling
 #define STACK_SUCCESS        0 /*!< Action performed successfully @hideinitializer*/
 #define STACK_INVALID       -1 /*!< The stack argument provided was NULL @hideinitializer*/

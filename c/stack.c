@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define FREE(ptr) do { free(ptr); ptr = NULL; } while(0)
+
 struct stack {
     struct stack_ele* head;    /**< Pointer to the stack */
     int size;                  /**< The number of elements on the stack*/
@@ -39,14 +41,11 @@ int stack_delete(stack* my_stack) {
         my_stack->head = my_stack->head->next;
 
         // Free both data and stack element
-        free(temp->value);
-        temp->value = NULL;
-        free(temp);
-        temp = NULL;
+        FREE(temp->value);
+        FREE(temp);
     }
 
-    free(my_stack);
-    my_stack = NULL;
+    FREE(my_stack);
 
     return STACK_SUCCESS;
 }
@@ -81,8 +80,7 @@ int stack_push(stack* my_stack, void* data, int size) {
 
     if (newItem->value == NULL) {
         // Cleanup and return
-        free(newItem);
-        newItem = NULL;
+        FREE(newItem);
         return STACK_OUT_OF_MEM;
     }
 
@@ -113,10 +111,8 @@ int stack_pop(stack* my_stack, void* data) {
     struct stack_ele* temp = my_stack->head;
     my_stack->head = my_stack->head->next;
 
-    free(temp->value);
-    temp->value = NULL;
-    free(temp);
-    temp = NULL;
+    FREE(temp->value);
+    FREE(temp);
 
     my_stack->size--;
 

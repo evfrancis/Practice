@@ -1,6 +1,9 @@
-#include "stdio.h"
-#include "time.h"
-#include "assert.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <assert.h>
+
 #include "linkedList.h"
 #include "BST.h"
 #include "stack.h"
@@ -8,7 +11,6 @@
 
 #define ARRAY_LEN 200
 #define ARRAY_MAX 1000
-
 
 void randomize(int* array, int len, int max) {
     int i;
