@@ -52,7 +52,16 @@ void testAlgorithms() {
 }
 
 void testBST() {
+    int array[ARRAY_LEN];
+    randomize(array, ARRAY_LEN, ARRAY_MAX);
+    int i;
 
+    bstNode* head = NULL;
+    for (i=0; i < ARRAY_LEN; i++) {
+        insertBSTNode(&head, array[i]);
+    }
+
+    printInOrder(head);
 }
 
 void testStack() {
@@ -144,6 +153,6 @@ void testLL() {
 int main() {
     srand(time(NULL));
     //testLL();
-    testStack();
+    testBST();
     return 0;
 }
