@@ -1,16 +1,17 @@
 #Graph library
-$(CXX) = g++
+CXX = g++
+CFLAGS= -g
 
 all:	Graph
 
 Graph:	graphNode.o main.o
-	$(CXX) main.o graphNode.o -o graph.bin
+	$(CXX) $(CFLAGS) main.o graphNode.o -o graph.bin
 
 graphNode.o:	graphNode.cpp graphNode.h
-	$(CXX) -c graphNode.cpp 
+	$(CXX) $(CFLAGS) -c graphNode.cpp 
 
 main.o:	main.cpp
-	$(CXX) -c main.cpp
+	$(CXX) $(CFLAGS) -c main.cpp
 
 clean:
 	rm -rf *.o graph.bin
